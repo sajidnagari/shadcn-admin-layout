@@ -1,0 +1,13 @@
+.git
+.gitignore
+node_modules
+src
+tsconfig.json
+tsup.config.ts
+.next
+.turbo
+.env*
+.eslintrc*
+postcss.config.js
+tailwind.config.js
+README.md
