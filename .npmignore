@@ -11,3 +11,4 @@ tsup.config.ts
 postcss.config.js
 tailwind.config.js
 README.md
+.next
