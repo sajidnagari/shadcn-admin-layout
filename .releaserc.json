@@ -1,0 +1,38 @@
+{
+  "branches": ["main"],  // Specify your default release branch, usually 'main' or 'master'
+  "repositoryUrl": "https://github.com/yourusername/your-repo-name",
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "conventionalcommits"  // Analyzes commit messages to determine the next version
+      }
+    ],
+    [
+      "@semantic-release/release-notes-generator",
+      {
+        "preset": "conventionalcommits"  // Generates release notes based on commit history
+      }
+    ],
+    [
+      "@semantic-release/changelog",
+      {
+        "changelogFile": "CHANGELOG.md"  // Updates the changelog file with new release notes
+      }
+    ],
+    "@semantic-release/npm",  // Publishes the package to npm (optional)
+    [
+      "@semantic-release/git",
+      {
+        "assets": ["package.json", "CHANGELOG.md"],  // Commits the updated version and changelog back to the repo
+        "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"  // Custom commit message
+      }
+    ],
+    [
+      "@semantic-release/github",
+      {
+        "assets": ["dist/**/*.{js,css}"]  // Optionally upload built files to GitHub releases
+      }
+    ]
+  ]
+}
