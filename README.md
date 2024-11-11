@@ -1,4 +1,4 @@
-# This package is currently under development. Please hold off on installing it—we'll provide updates soon!
+<h1 style="color: #fc0324">This package is currently under development. Please hold off on installing it—we'll provide updates soon!</h1>
 
 
 # Shadcn Admin Layout
