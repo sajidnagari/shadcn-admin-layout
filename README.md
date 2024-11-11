@@ -1,3 +1,6 @@
+# This package is currently under development. Please hold off on installing it—we'll provide updates soon!
+
+
 # Shadcn Admin Layout
 
 A modern admin dashboard layout built with Next.js, TypeScript, and shadcn/ui.
