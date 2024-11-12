@@ -50,4 +50,6 @@ This package requires the following peer dependencies:
 
 [Comming Soon ... ]
 
+Main branch
+
 ## License
