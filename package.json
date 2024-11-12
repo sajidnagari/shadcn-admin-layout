@@ -8,8 +8,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build:package": "tsup",
-    "prepublishOnly": "yarn build:package",
     "clean": "rm -rf .next"
   },
   "files": [
