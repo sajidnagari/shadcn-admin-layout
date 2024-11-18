@@ -28,24 +28,6 @@ export default function App() {
   )
 }
 ```
-
-## Requirements
-
-This package requires the following peer dependencies:
-
-- Next.js 15.0.0 or higher
-- React 18.3.0 or higher
-- Tailwind CSS 3.4.0 or higher
-- shadcn/ui components
-
-## Features
-
-- 🎨 Modern and clean design
-- 📱 Fully responsive
-- 🎯 TypeScript support
-- 🎨 Customizable theme
-- 📊 Built-in components
-
 ## Documentation
 
 [Comming Soon ... ]
