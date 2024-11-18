@@ -1,7 +1,9 @@
 {
   "name": "@main-layout/shadcn-admin-layout",
-  "access": "public",
   "version": "0.1.0",
+  "publishConfig": {
+      "access": "public"
+    },
   "private": false,
   "description": "Modern admin dashboard layout built with Next.js, TypeScript, and shadcn/ui",
   "scripts": {
