@@ -18,8 +18,8 @@ import {
 } from "@/components/ui/card"
 
 const visitData = [
-  { date: "2024-03-01", visits: 2400 },
-  { date: "2024-03-02", visits: 1398 },
+  { date: "2024-03-01", visits: 2500 },
+  { date: "2024-03-02", visits: 1498 },
   { date: "2024-03-03", visits: 9800 },
   { date: "2024-03-04", visits: 3908 },
   { date: "2024-03-05", visits: 4800 },
