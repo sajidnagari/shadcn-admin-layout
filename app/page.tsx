@@ -4,6 +4,8 @@ import { Input } from "@/components/ui/input"
 import Image from 'next/image'
 import Link from 'next/link'
 
+import LoginForm from '@/components/auth/LoginForm'
+
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
@@ -22,55 +24,7 @@ export default function Home() {
           <CardDescription>Enter your credentials to access your account</CardDescription>
         </CardHeader>
         <CardContent>
-          <form className="space-y-4">
-            <div className="space-y-2">
-              <label htmlFor="email" className="text-sm font-medium text-gray-700">
-                Email
-              </label>
-              <Input
-                id="email"
-                placeholder="Enter your email"
-                type="email"
-                required
-                className="w-full"
-              />
-            </div>
-            <div className="space-y-2">
-              <label htmlFor="password" className="text-sm font-medium text-gray-700">
-                Password
-              </label>
-              <Input
-                id="password"
-                placeholder="Enter your password"
-                type="password"
-                required
-                className="w-full"
-              />
-            </div>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-2">
-                <input
-                  type="checkbox"
-                  id="remember"
-                  className="h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
-                />
-                <label htmlFor="remember" className="text-sm text-gray-700">
-                  Remember me
-                </label>
-              </div>
-              <Link
-                href="/forgot-password"
-                className="text-sm font-medium text-primary-600 hover:text-primary-500"
-              >
-                Forgot password?
-              </Link>
-            </div>
-            <Link href="/dashboard" className="w-full">
-              <Button className="w-full bg-primary-500 hover:bg-primary-600 text-white">
-                Sign in
-              </Button>
-            </Link>
-          </form>
+          <LoginForm defaultEmail="admin@example.com" defaultPassword="password" />
           <div className="mt-4 text-center text-sm text-gray-600">
             Don't have an account?{" "}
             <Link href="/signup" className="font-medium text-primary-600 hover:text-primary-500">

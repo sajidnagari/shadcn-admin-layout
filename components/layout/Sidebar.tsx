@@ -7,14 +7,16 @@ import {
   BarChart3,
   LogOut
 } from 'lucide-react'
+import { getUser } from '@/lib/auth'
 
-const Sidebar = () => {
+const Sidebar = async () => {
+  const user = await getUser()
   const menuItems = [
-    { icon: LayoutDashboard, label: 'Dashboard', href: '/dashboard' },
-    { icon: Users, label: 'Users', href: '/dashboard/users' },
-    { icon: BarChart3, label: 'Analytics', href: '/dashboard/analytics' },
-    { icon: Settings, label: 'Settings', href: '/dashboard/settings' },
-  ]
+    { icon: LayoutDashboard, label: 'Dashboard', href: '/dashboard', roles: ['admin','editor','viewer'] },
+    { icon: Users, label: 'Users', href: '/dashboard/users', roles: ['admin'] },
+    { icon: BarChart3, label: 'Analytics', href: '/dashboard/analytics', roles: ['admin','editor'] },
+    { icon: Settings, label: 'Settings', href: '/dashboard/settings', roles: ['admin','editor'] },
+  ] as const
 
   return (
     <div className="h-screen w-64 bg-white border-r border-gray-200 flex flex-col">
@@ -23,7 +25,7 @@ const Sidebar = () => {
       </div>
       <nav className="flex-1 p-4">
         <ul className="space-y-2">
-          {menuItems.map((item, index) => (
+          {menuItems.filter((item) => !user ? false : item.roles.includes(user.role)).map((item, index) => (
             <li key={index}>
               <Link href={item.href}>
                 <span className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary-100 text-gray-700 hover:text-primary-600 transition-colors">
@@ -36,10 +38,12 @@ const Sidebar = () => {
         </ul>
       </nav>
       <div className="p-4 border-t border-gray-200">
-        <button className="flex items-center gap-3 p-3 w-full rounded-lg hover:bg-red-50 text-gray-700 hover:text-red-600 transition-colors">
-          <LogOut size={20} />
-          Logout
-        </button>
+        <form action="/api/auth/logout" method="post">
+          <button className="flex items-center gap-3 p-3 w-full rounded-lg hover:bg-red-50 text-gray-700 hover:text-red-600 transition-colors">
+            <LogOut size={20} />
+            Logout
+          </button>
+        </form>
       </div>
     </div>
   )
