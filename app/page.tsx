@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { CardTitle, CardDescription, CardHeader, CardContent, Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import Image from 'next/image'
+import { Suspense } from 'react'
 import Link from 'next/link'
 
 import LoginForm from '@/components/auth/LoginForm'
@@ -24,7 +25,9 @@ export default function Home() {
           <CardDescription>Enter your credentials to access your account</CardDescription>
         </CardHeader>
         <CardContent>
-          <LoginForm defaultEmail="admin@example.com" defaultPassword="password" />
+          <Suspense fallback={<div className="text-center text-gray-600">Loading…</div>}>
+            <LoginForm defaultEmail="admin@example.com" defaultPassword="password" />
+          </Suspense>
           <div className="mt-4 text-center text-sm text-gray-600">
             Don't have an account?{" "}
             <Link href="/signup" className="font-medium text-primary-600 hover:text-primary-500">

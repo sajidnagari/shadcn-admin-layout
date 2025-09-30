@@ -42,16 +42,14 @@ export default async function AdminLayout({ children, sidebar, header, login }: 
   }
 
   function filterByRole(list: SidebarItem[]): SidebarItem[] {
-    return list
-      .map((i) => {
-        const allowed = i.roles ? (user ? i.roles.includes(user.role) : false) : Boolean(user)
-        const children = i.children ? filterByRole(i.children) : undefined
-        const hasChildren = Boolean(children && children.length > 0)
-        const keep = allowed || hasChildren
-        if (!keep) return null
-        return { ...i, children }
-      })
-      .filter((x): x is SidebarItem => Boolean(x))
+    return list.reduce<SidebarItem[]>((acc, i) => {
+      const allowed = i.roles ? (user ? i.roles.includes(user.role) : false) : Boolean(user)
+      const children = i.children ? filterByRole(i.children) : undefined
+      const hasChildren = Boolean(children && children.length > 0)
+      const keep = allowed || hasChildren
+      if (keep) acc.push({ ...i, children })
+      return acc
+    }, [])
   }
 
   const items = filterByRole(

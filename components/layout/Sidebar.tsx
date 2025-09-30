@@ -8,15 +8,16 @@ import {
   LogOut
 } from 'lucide-react'
 import { getUser } from '@/lib/auth'
+import type { AuthUser } from '@/lib/auth'
 
 const Sidebar = async () => {
   const user = await getUser()
-  const menuItems = [
-    { icon: LayoutDashboard, label: 'Dashboard', href: '/dashboard', roles: ['admin','editor','viewer'] },
-    { icon: Users, label: 'Users', href: '/dashboard/users', roles: ['admin'] },
-    { icon: BarChart3, label: 'Analytics', href: '/dashboard/analytics', roles: ['admin','editor'] },
-    { icon: Settings, label: 'Settings', href: '/dashboard/settings', roles: ['admin','editor'] },
-  ] as const
+  const menuItems: { icon: React.ReactNode; label: string; href: string; roles: AuthUser['role'][] }[] = [
+    { icon: <LayoutDashboard size={20} />, label: 'Dashboard', href: '/dashboard', roles: ['admin','editor','viewer'] },
+    { icon: <Users size={20} />, label: 'Users', href: '/dashboard/users', roles: ['admin'] },
+    { icon: <BarChart3 size={20} />, label: 'Analytics', href: '/dashboard/analytics', roles: ['admin','editor'] },
+    { icon: <Settings size={20} />, label: 'Settings', href: '/dashboard/settings', roles: ['admin','editor'] },
+  ]
 
   return (
     <div className="h-screen w-64 bg-white border-r border-gray-200 flex flex-col">
@@ -29,7 +30,7 @@ const Sidebar = async () => {
             <li key={index}>
               <Link href={item.href}>
                 <span className="flex items-center gap-3 p-3 rounded-lg hover:bg-primary-100 text-gray-700 hover:text-primary-600 transition-colors">
-                  <item.icon size={20} />
+                  {item.icon}
                   {item.label}
                 </span>
               </Link>
