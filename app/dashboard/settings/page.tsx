@@ -5,6 +5,58 @@ import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Switch } from "@/components/ui/switch"
 
+type SettingsCardProps = {
+  title: string
+  description: string
+  children: React.ReactNode
+}
+
+function SettingsCard({ title, description, children }: SettingsCardProps) {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>{title}</CardTitle>
+        <CardDescription>{description}</CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-4">{children}</CardContent>
+    </Card>
+  )
+}
+
+type LabeledInputProps = {
+  id: string
+  label: string
+  type?: string
+  defaultValue?: string
+}
+
+function LabeledInput({ id, label, type, defaultValue }: LabeledInputProps) {
+  return (
+    <div className="space-y-2">
+      <Label htmlFor={id}>{label}</Label>
+      <Input id={id} type={type} defaultValue={defaultValue} />
+    </div>
+  )
+}
+
+type ToggleRowProps = {
+  title: string
+  description: string
+  defaultChecked?: boolean
+}
+
+function ToggleRow({ title, description, defaultChecked }: ToggleRowProps) {
+  return (
+    <div className="flex items-center justify-between">
+      <div>
+        <p className="font-medium">{title}</p>
+        <p className="text-sm text-gray-500">{description}</p>
+      </div>
+      <Switch defaultChecked={defaultChecked} />
+    </div>
+  )
+}
+
 export default function SettingsPage() {
   return (
     <div className="space-y-6">
@@ -21,94 +73,41 @@ export default function SettingsPage() {
         </TabsList>
 
         <TabsContent value="profile" className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Profile Information</CardTitle>
-              <CardDescription>Update your account profile information.</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="firstName">First name</Label>
-                  <Input id="firstName" defaultValue="John" />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="lastName">Last name</Label>
-                  <Input id="lastName" defaultValue="Doe" />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" defaultValue="john@example.com" />
-              </div>
-              <Button>Save changes</Button>
-            </CardContent>
-          </Card>
+          <SettingsCard title="Profile Information" description="Update your account profile information.">
+            <div className="grid grid-cols-2 gap-4">
+              <LabeledInput id="firstName" label="First name" defaultValue="John" />
+              <LabeledInput id="lastName" label="Last name" defaultValue="Doe" />
+            </div>
+            <LabeledInput id="email" label="Email" type="email" defaultValue="john@example.com" />
+            <Button>Save changes</Button>
+          </SettingsCard>
         </TabsContent>
 
         <TabsContent value="notifications" className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Notification Preferences</CardTitle>
-              <CardDescription>Choose what notifications you want to receive.</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-medium">Email Notifications</p>
-                  <p className="text-sm text-gray-500">Receive emails about your account activity.</p>
-                </div>
-                <Switch defaultChecked />
-              </div>
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-medium">Marketing Emails</p>
-                  <p className="text-sm text-gray-500">Receive emails about new products and features.</p>
-                </div>
-                <Switch />
-              </div>
-            </CardContent>
-          </Card>
+          <SettingsCard title="Notification Preferences" description="Choose what notifications you want to receive.">
+            <ToggleRow
+              title="Email Notifications"
+              description="Receive emails about your account activity."
+              defaultChecked
+            />
+            <ToggleRow
+              title="Marketing Emails"
+              description="Receive emails about new products and features."
+            />
+          </SettingsCard>
         </TabsContent>
 
         <TabsContent value="security" className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Change Password</CardTitle>
-              <CardDescription>Update your password to keep your account secure.</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="currentPassword">Current password</Label>
-                <Input id="currentPassword" type="password" />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="newPassword">New password</Label>
-                <Input id="newPassword" type="password" />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="confirmPassword">Confirm new password</Label>
-                <Input id="confirmPassword" type="password" />
-              </div>
-              <Button>Update password</Button>
-            </CardContent>
-          </Card>
+          <SettingsCard title="Change Password" description="Update your password to keep your account secure.">
+            <LabeledInput id="currentPassword" label="Current password" type="password" />
+            <LabeledInput id="newPassword" label="New password" type="password" />
+            <LabeledInput id="confirmPassword" label="Confirm new password" type="password" />
+            <Button>Update password</Button>
+          </SettingsCard>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>Two-Factor Authentication</CardTitle>
-              <CardDescription>Add an extra layer of security to your account.</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="font-medium">Two-Factor Authentication</p>
-                  <p className="text-sm text-gray-500">Secure your account with 2FA.</p>
-                </div>
-                <Switch />
-              </div>
-            </CardContent>
-          </Card>
+          <SettingsCard title="Two-Factor Authentication" description="Add an extra layer of security to your account.">
+            <ToggleRow title="Two-Factor Authentication" description="Secure your account with 2FA." />
+          </SettingsCard>
         </TabsContent>
       </Tabs>
     </div>
