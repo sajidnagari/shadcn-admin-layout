@@ -8,7 +8,7 @@ import SignupForm from '@/components/auth/SignupForm'
 
 export default function SignUp() {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-background">
         <Card className="w-full max-w-md">
           <CardHeader className="text-center space-y-2">
             <div className="flex items-center justify-center mb-4">
@@ -20,7 +20,7 @@ export default function SignUp() {
                 className="h-10 w-10"
               />
             </div>
-            <CardTitle className="text-2xl font-bold text-gray-900">Create an account</CardTitle>
+            <CardTitle className="text-2xl font-bold text-foreground">Create an account</CardTitle>
             <CardDescription>Enter your information to create your account</CardDescription>
           </CardHeader>
           <CardContent>
@@ -29,7 +29,7 @@ export default function SignUp() {
               defaultEmail="admin@example.com"
               defaultPassword="password"
             />
-            <div className="mt-4 text-center text-sm text-gray-600">
+            <div className="mt-4 text-center text-sm text-muted-foreground">
               Already have an account?{" "}
               <Link href="/" className="font-medium text-primary-600 hover:text-primary-500">
                 Sign in

@@ -50,7 +50,7 @@ function ToggleRow({ title, description, defaultChecked }: ToggleRowProps) {
     <div className="flex items-center justify-between">
       <div>
         <p className="font-medium">{title}</p>
-        <p className="text-sm text-gray-500">{description}</p>
+        <p className="text-sm text-muted-foreground">{description}</p>
       </div>
       <Switch defaultChecked={defaultChecked} />
     </div>
@@ -61,8 +61,8 @@ export default function SettingsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Settings</h1>
-        <p className="text-gray-500">Manage your account settings and preferences.</p>
+        <h1 className="text-2xl font-bold text-foreground">Settings</h1>
+        <p className="text-muted-foreground">Manage your account settings and preferences.</p>
       </div>
 
       <Tabs defaultValue="profile" className="space-y-6">

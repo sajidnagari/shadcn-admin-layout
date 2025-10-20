@@ -9,7 +9,7 @@ import LoginForm from '@/components/auth/LoginForm'
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-background">
       <Card className="w-full max-w-md">
         <CardHeader className="text-center space-y-2">
           <div className="flex items-center justify-center mb-4">
@@ -21,14 +21,14 @@ export default function Home() {
               className="h-10 w-10"
             />
           </div>
-          <CardTitle className="text-2xl font-bold text-gray-900">Welcome back</CardTitle>
+          <CardTitle className="text-2xl font-bold text-foreground">Welcome back</CardTitle>
           <CardDescription>Enter your credentials to access your account</CardDescription>
         </CardHeader>
         <CardContent>
-          <Suspense fallback={<div className="text-center text-gray-600">Loading…</div>}>
+          <Suspense fallback={<div className="text-center text-muted-foreground">Loading…</div>}>
             <LoginForm defaultEmail="admin@example.com" defaultPassword="password" />
           </Suspense>
-          <div className="mt-4 text-center text-sm text-gray-600">
+          <div className="mt-4 text-center text-sm text-muted-foreground">
             Don't have an account?{" "}
             <Link href="/signup" className="font-medium text-primary-600 hover:text-primary-500">
               Sign up

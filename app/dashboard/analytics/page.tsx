@@ -23,7 +23,7 @@ import {
         </CardHeader>
         <CardContent>
           <div className="text-2xl font-bold">{value}</div>
-          <p className="text-xs text-gray-500">{changeText}</p>
+          <p className="text-xs text-muted-foreground">{changeText}</p>
         </CardContent>
       </Card>
     )
@@ -39,7 +39,7 @@ import {
     return (
       <div className="space-y-6">
         <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-900">Analytics</h1>
+          <h1 className="text-2xl font-bold text-foreground">Analytics</h1>
           <TimeRangeSelector />
         </div>
   

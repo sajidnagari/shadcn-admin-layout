@@ -10,7 +10,7 @@ export function RecentSales() {
         </Avatar>
         <div className="ml-4 space-y-1">
           <p className="text-sm font-medium leading-none">John Doe</p>
-          <p className="text-sm text-gray-500">john@example.com</p>
+          <p className="text-sm text-muted-foreground">john@example.com</p>
         </div>
         <div className="ml-auto font-medium">+$1,999.00</div>
       </div>
@@ -21,7 +21,7 @@ export function RecentSales() {
         </Avatar>
         <div className="ml-4 space-y-1">
           <p className="text-sm font-medium leading-none">Jane Smith</p>
-          <p className="text-sm text-gray-500">jane@example.com</p>
+          <p className="text-sm text-muted-foreground">jane@example.com</p>
         </div>
         <div className="ml-auto font-medium">+$1,499.00</div>
       </div>
@@ -32,7 +32,7 @@ export function RecentSales() {
         </Avatar>
         <div className="ml-4 space-y-1">
           <p className="text-sm font-medium leading-none">Robert Wilson</p>
-          <p className="text-sm text-gray-500">robert@example.com</p>
+          <p className="text-sm text-muted-foreground">robert@example.com</p>
         </div>
         <div className="ml-auto font-medium">+$2,499.00</div>
       </div>

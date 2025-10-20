@@ -42,11 +42,11 @@ export default function LoginForm({ defaultEmail = '', defaultPassword = '' }: L
   return (
     <form className="space-y-4" onSubmit={onSubmit}>
       <div className="space-y-2">
-        <label htmlFor="email" className="text-sm font-medium text-gray-700">Email</label>
+        <label htmlFor="email" className="text-sm font-medium text-foreground">Email</label>
         <Input id="email" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} />
       </div>
       <div className="space-y-2">
-        <label htmlFor="password" className="text-sm font-medium text-gray-700">Password</label>
+        <label htmlFor="password" className="text-sm font-medium text-foreground">Password</label>
         <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
       </div>
       {error && <p className="text-sm text-red-600">{error}</p>}

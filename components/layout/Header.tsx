@@ -7,22 +7,22 @@ import Image from 'next/image'
 const Header = async () => {
   const user = await getUser()
   return (
-    <header className="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6">
+    <header className="h-16 bg-background border-b border-border flex items-center justify-between px-6">
       <div className="flex items-center gap-4">
-        <h2 className="text-xl font-semibold text-gray-800">Dashboard</h2>
+        <h2 className="text-xl font-semibold text-foreground">Dashboard</h2>
       </div>
       <div className="flex items-center gap-4">
         <Button variant="ghost" size="icon">
-          <Bell className="h-5 w-5 text-gray-600" />
+          <Bell className="h-5 w-5 text-muted-foreground" />
         </Button>
         {user ? (
           <div className="flex items-center gap-3">
-            <div className="h-8 w-8 rounded-full overflow-hidden bg-gray-100">
+            <div className="h-8 w-8 rounded-full overflow-hidden bg-muted">
               <Image src="/favicon.ico" alt="avatar" width={32} height={32} />
             </div>
             <div className="flex flex-col items-start">
-              <span className="text-sm font-medium text-gray-900">{user.name}</span>
-              <span className="text-xs text-gray-500">{user.email}</span>
+              <span className="text-sm font-medium text-foreground">{user.name}</span>
+              <span className="text-xs text-muted-foreground">{user.email}</span>
             </div>
             <form action="/api/auth/logout" method="post">
               <Button type="submit" variant="outline" size="sm">Logout</Button>

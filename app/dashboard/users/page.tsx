@@ -40,7 +40,7 @@ export default function UsersPage() {
   return (
     <div className="space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-gray-900">Users</h1>
+        <h1 className="text-2xl font-bold text-foreground">Users</h1>
         <Button className="bg-primary-500 hover:bg-primary-600">
           <UserPlus className="h-4 w-4 mr-2" />
           Add User
@@ -49,16 +49,16 @@ export default function UsersPage() {
 
       <div className="flex items-center space-x-4">
         <div className="relative flex-1">
-          <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
+          <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
           <Input
             placeholder="Search users..."
-            className="pl-8 bg-white"
+            className="pl-8 bg-background"
           />
         </div>
         <Button variant="outline">Filters</Button>
       </div>
 
-      <div className="bg-white rounded-lg shadow">
+      <div className="bg-card rounded-lg shadow">
         <Table>
           <TableHeader>
             <TableRow>
@@ -78,7 +78,7 @@ export default function UsersPage() {
                 <TableCell>{user.role}</TableCell>
                 <TableCell>
                   <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                    user.status === 'Active' ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800'
+                    user.status === 'Active' ? 'bg-green-100 text-green-800' : 'bg-muted text-muted-foreground'
                   }`}>
                     {user.status}
                   </span>
