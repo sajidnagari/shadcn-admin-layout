@@ -1,6 +1,6 @@
 {
   "name": "@main-layout/shadcn-admin-layout",
-  "version": "0.1.0",
+  "version": "1.4.0",
   "publishConfig": {
       "access": "public"
     },
@@ -11,10 +11,21 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "clean": "rm -rf .next"
+    "clean": "rm -rf .next",
+    "prepublishOnly": "npm run build"
   },
+  "main": "index.ts",
+  "types": "index.ts",
   "files": [
-    ".next"
+    "components/**/*",
+    "lib/**/*",
+    "*.ts",
+    "*.tsx",
+    "*.js",
+    "*.jsx",
+    "*.json",
+    "*.css",
+    "*.md"
   ],
   "dependencies": {
     "@apollo/client": "^3.11.8",
