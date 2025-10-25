@@ -6,9 +6,9 @@ A modern, minimal admin dashboard layout for Next.js (App Router) with:
 - **Role-based sidebar** and **user header** display
 - **Optional auth UI** (bring-your-own or use the provided forms)
 
-## Features
+## Features 
 
-- 🚀 **Zero Configuration**: Works out of the box with minimal setup
+- 🚀 **Zero Configuration**: Works out of the box with minimal setup 
 - 🔐 **Built-in Authentication**: Cookie-based auth with dummy endpoints for quick prototyping
 - 👥 **Role-based Access Control**: Show/hide sidebar items based on user roles
 - 🎨 **Shadcn/ui Compatible**: Uses your existing shadcn/ui components
@@ -280,7 +280,7 @@ export async function setUser(user: AuthUser) {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
     sameSite: 'lax',
-    maxAge: 60 * 60 * 24 * 7 // 7 days
+    maxAge: 60 * 60 * 24 * 7 
   })
 }
 ```
